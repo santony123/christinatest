@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="title">Register</div>
+        <div class="content">
+           <form method="POST" onsubmit="return validateForm()"> 
+                <div class="user-details">
+                    
+                    <div class="input-box">
+                        <span class="details">Full Name</span>
+                        <input type="text" name="name" placeholder="Enter your name" required>
+                    </div>
+
+                    
+                    <div class="input-box">
+                        <span class="details">Email</span>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="details">Password</span>
+                        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                    </div>
+                </div>
+
+              
+                <div class="button">
+                    <input type="submit" value="Register">
+                </div>
+         </form> 
+        </div>
+    </div>
+
+    <script>
+        function validateForm() {
+            var email = document.getElementById("email").value;
+            var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/; // Email regex
+
+            if (!emailPattern.test(email)) {
+                alert("Please enter a valid email address!");
+                return false; 
+            }
+            return true;
+        }
+
+        async function registerStudent(event) {
+        event.preventDefault();
+
+        let name = document.querySelector("input[name='name']").value;
+        let email = document.querySelector("input[name='email']").value;
+        let password = document.querySelector("input[name='password']").value;
+    
+        // api call to register.php
+        let response = await fetch("api/register.php", { 
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ name, email, password })
+        });
+
+        let result = await response.json();
+        if (result.id) {
+            console.log(result.id);
+            alert("Student registered successfully!");
+            window.location.href = "login.html";
+           
+        } else {
+            alert("Error: " + result.error);
+        }
+    }
+    document.querySelector('form').addEventListener("submit", registerStudent);
+    </script>
+</body>
+</html>

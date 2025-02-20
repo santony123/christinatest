@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+}
+
+.container {
+    max-width: 400px;
+    width: 100%;
+    background-color: #fff;
+    padding: 25px 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.container .title {
+    font-size: 25px;
+    font-weight: 500;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.container .title::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -5px;
+    height: 3px;
+    width: 40px;
+    border-radius: 5px;
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    transform: translateX(-50%);
+}
+
+.user-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-box {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.input-box span.details {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.input-box input {
+    height: 45px;
+    width: 100%;
+    outline: none;
+    font-size: 16px;
+    border-radius: 5px;
+    padding-left: 15px;
+    border: 1px solid #ccc;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+}
+
+.input-box input:focus,
+.input-box input:valid {
+    border-color: #9b59b6;
+}
+
+.button {
+    margin-top: 15px;
+}
+
+.button input,
+.button a {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.button input {
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    color: white;
+}
+
+.button input:hover {
+    background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+}
+
+.button a {
+    display: block;
+    background: #f1f1f1;
+    color: #333;
+    text-decoration: none;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.button a:hover {
+    background: #ddd;
+}
+
+/* Responsive Design */
+@media(max-width: 480px) {
+    .container {
+        width: 90%;
+    }
+}
+/* Pay Fee Button - Red */
+.button a.btn {
+  display: block;
+  background: red;
+  color: white;
+  text-decoration: none;
+  padding: 12px;
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.button a.btn:hover {
+  background: darkred;
+}
+
+/* Logout Button - Blue */
+.button a.logout {
+  display: block;
+  background: blue;
+  color: white;
+  text-decoration: none;
+  padding: 12px;
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.button a.logout:hover {
+  background: darkblue;
+}
